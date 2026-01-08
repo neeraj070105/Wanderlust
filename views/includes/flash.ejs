@@ -1,0 +1,29 @@
+<% if(success && success.length) { %>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <!-- col-6 and offset-3 is used to show success mdg on the center -->
+        <%= success %>
+        <!--  X ka option ayga iss button se  -->
+        <button   
+            type="button" 
+            class="btn-close" 
+            data-bs-dismiss="alert" 
+            aria-label="Close"
+        ></button>
+    </div>
+<% } %>
+
+<!-- ERROR -->
+
+<% if(error && error.length) { %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <!-- col-6 and offset-3 is used to show success mdg on the center -->
+        <%= error %>
+        <!--  X ka option ayga iss button se  -->
+        <button   
+            type="button" 
+            class="btn-close" 
+            data-bs-dismiss="alert" 
+            aria-label="Close"
+        ></button>
+    </div>
+<% } %>

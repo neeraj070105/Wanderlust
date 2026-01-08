@@ -1,0 +1,76 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="offers-wrapper">
+
+  <% if (offers.length === 0) { %>
+    <div class="empty-inbox">
+      <h4>No offer requests yet</h4>
+      <p>
+        When guests make offers on your listings,  
+        you’ll see them here.
+      </p>
+      <a href="/listings" class="empty-btn">
+        View Your Listings
+      </a>
+    </div>
+  <% } else { %>
+
+  <% offers.forEach(offer => { %>
+    <div class="offer-card">
+
+      <!-- Top row -->
+      <div class="offer-top">
+        <h5 class="listing-title"><%= offer.listing.title %></h5>
+
+        <span class="status-pill <%= offer.status %>">
+          <%= offer.status %>
+        </span>
+      </div>
+
+      <!-- Meta -->
+      <p class="from-text">
+        From: <span><%= offer.buyer.username %></span>
+      </p>
+
+      <!-- Price -->
+      <p class="price-text">
+        Offered Price: ₹ <%= offer.offeredPrice %>
+      </p>
+
+      <!-- Message -->
+      <% if (offer.message) { %>
+        <p class="message-text">
+          “<%= offer.message %>”
+        </p>
+      <% } %>
+
+      <!-- Actions -->
+      <% if (offer.status === "pending") { %>
+        <div class="offer-actions">
+          <form 
+            action="/offers/<%= offer._id %>/accept"
+            method="POST"
+            class="d-inline"
+          >
+            <button class="accept-btn">
+              Accept
+            </button>
+          </form>
+
+          <form 
+            action="/offers/<%= offer._id %>/reject"
+            method="POST"
+            class="d-inline ms-2"
+          >
+            <button class="reject-btn">
+              Reject
+            </button>
+          </form>
+        </div>
+      <% } %>
+
+    </div>
+  <% }) %>
+  <% } %>
+</div>

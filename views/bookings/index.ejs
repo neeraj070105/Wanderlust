@@ -1,0 +1,66 @@
+
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="offers-wrapper">
+  <h3 class="offers-title text-center">All Bookings</h3>
+
+  <% if (bookings.length === 0) { %>
+    <div class="empty-state">
+      <h4>No bookings yet</h4>
+      <p>
+        You haven’t booked any place yet.  
+        Explore listings and plan your next stay.
+      </p>
+
+      <a href="/listings" class="empty-btn">
+        Explore Stays
+      </a>
+    </div>
+  <% } %>
+
+  <% bookings.forEach((booking) => { %>
+    <div class="offer-card booking-card">
+
+      <!-- Top row -->
+      <div class="offer-top">
+        <h5 class="listing-title">
+          <%= booking.listing?.title %>
+        </h5>
+
+        <span class="status-pill accepted">
+          Booked
+        </span>
+      </div>
+
+      <!-- Dates -->
+      <div class="booking-dates">
+        <p>
+          <b>Check In:</b> <%= booking.checkIn.toDateString() %>
+        </p>
+        <p>
+          <b>Check Out:</b> <%= booking.checkOut.toDateString() %>
+        </p>
+      </div>
+
+      <!-- Price -->
+      <p class="price-text">
+        Total Price: ₹ <%= booking.totalPrice.toLocaleString("en-IN") %>
+      </p>
+
+      <!-- Meta -->
+      <p class="meta-text">
+        Booked on <%= booking.bookedAt.toDateString() %>
+      </p>
+
+      <!-- Action -->
+      <a 
+        href="/bookings/<%= booking._id %>/cancel"
+        class="cancel-btn"
+      >
+        Cancel Booking
+      </a>
+
+    </div>
+  <% }) %>
+</div>

@@ -1,0 +1,751 @@
+body {
+    display : flex;
+    flex-direction : column;
+    min-height : 100vh;
+} 
+
+.container {
+    flex : 1;
+}
+
+/* Navbar */
+.navbar {
+    height : 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color : #fe424d;
+    font-size : 2rem;
+}
+
+.nav-link {
+    color : #222222 !important;
+}
+
+/* Footer */
+.f-info-links a {
+    text-decoration : none;
+    color : #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration : underline;
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand {
+    width : 100%;
+    display : flex;
+    align-items : center;
+    justify-content: center;
+}
+
+.f-info-social i {
+    font-size: 1.2rem;
+    margin-right : 0.8rem;
+}
+
+.f-info {
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;  /* 🔥 Add this */
+    justify-content: center;
+    align-items: center;     /* 🔥 Center items horizontally */
+    text-align: center;
+}
+
+/* Cards */
+.listing-card {
+    border : none !important;
+    margin-bottom : 2rem;
+}
+
+.card-img-top {
+    border-radius : 1rem !important;
+    width : 100% !important;
+    object-fit : cover !important;  
+}
+
+.card-body {
+    padding : 0 !important;
+}
+
+.card-text-p {
+    font-weight : 400;
+}
+
+.listing-link {
+    text-decoration : none;
+}
+
+/* Card Effect -> isko overlays bolte h */
+.card-img-overlay {
+    opacity : 0;
+}
+
+.card-img-overlay:hover {
+    opacity : 0.2;
+    background-color: white;
+}
+
+/* New Page */
+.add-btn {
+    background-color : #fe424d !important;
+    border : none !important;
+    width : 100%;
+    border-radius : 5rem !important;
+}
+
+/* Edit Page */
+.editbtn {
+    margin-bottom : 100px;
+    background-color : #fe424d !important;
+    width : 100%;
+    border : none !important;
+    border-radius : 5rem !important; 
+}
+
+/* Show Page */
+.show-image {
+    height : 30vh;
+}
+
+.ebtn {
+    background-color : #fe424d !important;
+    display : flex;
+    margin-right : 5px !important;
+}
+
+/* Review Cards */
+/* .review-container {
+    display :flex;
+    flex-wrap : wrap;
+    justify-content: space-between;
+} */
+
+
+/* UI of show.ejs */
+.show-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.details-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.price {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.price span {
+  font-size: 16px;
+  color: gray;
+}
+
+.location {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.book-btn {
+  display: block;
+  background: #fe424d;
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.book-btn:hover {
+  background: #e63946;
+}
+
+.review-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* REVIEW MAIN CARD */
+.review-box {
+  background: #fff;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Textarea */
+.review-textarea {
+  border-radius: 12px;
+  resize: none;
+}
+
+/* Submit Button */
+.review-btn {
+  background: #fe424d;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Individual Review */
+.single-review {
+  background: #fafafa;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-comment {
+  color: #444;
+  line-height: 1.6;
+}
+
+
+/* Offer button */
+.offer-btn-wrapper {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  margin-top: 14px;
+}
+
+/* Default: no color */
+.make-offer-btn {
+  background: transparent;
+  color: #fe424d;
+  border: 2px solid #fe424d;
+  padding: 8px 26px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover pe fill color */
+.make-offer-btn:hover {
+  background: #fe424d;
+  color: white;
+}
+
+
+/* Edit and Delete */
+.edit-delete-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* common outline red button */
+.outline-red-btn {
+  background: transparent;
+  color: #fe424d;
+  border: 2px solid #fe424d;
+  padding: 8px 26px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* hover effect */
+.outline-red-btn:hover {
+  background: #fe424d;
+  color: white;
+}
+
+
+/* Booking Offer */
+.booking-like-form .form-control {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.booking-like-form .form-control:disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+/* SAME BOOK NOW BUTTON */
+.book-now-btn {
+  width: 100%;
+  background: #fe424d;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.book-now-btn:hover {
+  background: #e63946;
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+
+/* Accept and reject button */
+.offer-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-accept {
+  background-color: #2ecc71;   /* soft green */
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-accept:hover {
+  background-color: #27ae60;
+}
+
+.btn-reject {
+  background-color: #e74c3c;   /* soft red */
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-reject:hover {
+  background-color: #c0392b;
+}
+
+
+/* ===== MY OFFERS PAGE ===== */
+
+.offers-wrapper {
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+.offers-title {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.offer-card {
+  max-width: 520px;      /* 👈 width kam */
+  margin: 0 auto 16px;  /* center me */
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  transition: box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.offer-card:hover {
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+/* Top row */
+.offer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listing-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Price */
+.price {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 6px 0;
+}
+
+/* Message */
+.message {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/* Status badge */
+.status {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+/* Airbnb colors */
+.status.accepted {
+  background: #ffe5ea;
+  color: #FF385C;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.price {
+  display: flex;
+  gap: 14px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.actual-price {
+  color: #6c757d;        /* muted grey */
+}
+
+.offered-price {
+  color: #FF385C;        /* Airbnb red */
+  font-weight: 600;
+}
+
+
+/* ===== OFFER CARD UI ===== */
+
+.offers-wrapper {
+  max-width: 620px;
+  margin: 30px auto;
+  padding: 0 14px;
+}
+
+.offers-title {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.offer-card {
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  background: #fff;
+}
+
+/* Top row */
+.offer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listing-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Status pill */
+.status-pill {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pill.accepted {
+  background: #ffe5ea;
+  color: #FF385C;
+}
+
+.status-pill.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-pill.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* From */
+.from-text {
+  font-size: 13px;
+  color: #666;
+  margin: 8px 0 6px;
+}
+
+.from-text span {
+  font-weight: 500;
+  color: #000;
+}
+
+/* Price row */
+.price-row {
+  display: flex;
+  gap: 14px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.actual-price {
+  color: #6c757d;
+}
+
+.offered-price {
+  color: #FF385C;
+  font-weight: 600;
+}
+
+/* Message */
+.message {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+  font-style: italic;
+}
+
+
+
+/* Acccept and Reject button */
+/* Base buttons */
+.accept-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #28a745;   /* green */
+}
+
+.reject-btn {
+  background: transparent;
+  color: #000;
+  border: none;
+  padding: 4px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #dc3545;   /* red */
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* Hover effects */
+.accept-btn:hover {
+  background-color: #28a745;   /* green */
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+}
+
+.reject-btn:hover {
+  background-color: #dc3545;   /* red */
+  color: #fff;
+  border-radius: 6px;
+}
+
+
+
+/* ===== BOOKINGS UI ===== */
+
+.booking-card {
+  max-width: 520px;
+  margin: 0 auto 18px;
+}
+
+/* Dates */
+.booking-dates {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.booking-dates p {
+  margin: 0;
+}
+
+/* Price */
+.price-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 6px 0;
+}
+
+/* Meta */
+.meta-text {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Cancel button */
+.cancel-btn {
+  display: inline-block;
+  background: transparent;
+  color: #FF385C;
+  border: 1px solid #FF385C;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: #FF385C;
+  color: #fff;
+}
+
+/* ===== No Offers STATE ===== */
+
+.empty-state {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.empty-state h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* CTA button */
+.empty-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #FF385C;
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.empty-btn:hover {
+  background-color: #e0314f;
+}
+
+
+/* ===== OWNER OFFER INBOX EMPTY STATE ===== */
+
+.empty-inbox {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 32px 22px;
+  text-align: center;
+  border: 1px dashed #eaeaea;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.empty-inbox h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.empty-inbox p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* CTA */
+.empty-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #FF385C; /* Airbnb red */
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.empty-btn:hover {
+  background-color: #e0314f;
+}
+
+
+/* ===== BOOKINGS EMPTY STATE ===== */
+
+.empty-state {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 30px 22px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.empty-state h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* CTA button */
+.empty-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #FF385C; /* Airbnb red */
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.empty-btn:hover {
+  background-color: #e0314f;
+}

@@ -1,0 +1,119 @@
+<% layout("/layouts/boilerplate") %>
+
+
+<div class="container mt-5" style="max-width:600px;">
+  <h3 class="mb-4">Book this listing :</h3>
+
+  <form method="POST" action="/listings/<%= listingId %>/book">
+
+    <div class="mb-3">
+      <label class="form-label">Check In</label>
+      <input 
+        type="date" 
+        name="checkIn" 
+        id="checkIn"
+        min="<%= new Date().toISOString().split('T')[0] %>"
+        class="form-control"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Check Out</label>
+      <input 
+        type="date" 
+        name="checkOut"
+        id="checkOut" 
+        min="<%= new Date().toISOString().split('T')[0] %>"
+        class="form-control"
+        required
+      >
+    </div>
+
+    <!-- Optional: price preview (read-only) -->
+    <div class="mb-3">
+      <label class="form-label">Total Price</label>
+      <input 
+        type="text" 
+        id="totalPrice"
+        class="form-control"
+        value="₹ <%= listing.price.toLocaleString('en-IN') %>"
+        disabled
+      >
+    </div>
+
+    <button 
+      type="submit"
+      class="btn w-100 mt-3"
+      style="
+        background-color:#fe424d;
+        color:white;
+        border:none;
+        padding:12px;
+        font-size:16px;
+        border-radius:30px;
+      "
+    >
+      BOOK NOW
+    </button>
+
+  </form>
+</div>
+
+<script>
+  const pricePerNight = Number("<%= listing.price %>");
+
+  const checkInInput = document.getElementById("checkIn");
+  const checkOutInput = document.getElementById("checkOut");
+  const totalPriceInput = document.getElementById("totalPrice");
+
+  function calculatePrice() {
+    if (!checkInInput.value || !checkOutInput.value) {
+      totalPriceInput.value = "₹ 0";
+      return;
+    }
+
+    const checkInDate = new Date(checkInInput.value);
+    const checkOutDate = new Date(checkOutInput.value);
+
+    if (checkOutDate <= checkInDate) {
+      totalPriceInput.value = "₹ 0";
+      return;
+    }
+
+    const days = (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24);
+    const total = days * pricePerNight;
+
+    totalPriceInput.value = `₹ ${total.toLocaleString("en-IN")}`;
+  }
+
+  checkInInput.addEventListener("change", calculatePrice);
+  checkOutInput.addEventListener("change", calculatePrice);
+</script>
+
+<script>
+  const bookedRanges = <%- JSON.stringify(bookedDates) %>;
+
+  function isDateBlocked(date) {
+    return bookedRanges.some(b => {
+      const start = new Date(b.checkIn);
+      const end = new Date(b.checkOut);
+      return date >= start && date < end;
+    });
+  }
+
+  function validateDates() {
+    if (!checkInInput.value || !checkOutInput.value) return;
+
+    const ci = new Date(checkInInput.value);
+    const co = new Date(checkOutInput.value);
+
+    if (isDateBlocked(ci) || isDateBlocked(co)) {
+      alert("❌ Selected dates are already booked.");
+      checkOutInput.value = "";
+    }
+  }
+
+  checkInInput.addEventListener("change", validateDates);
+  checkOutInput.addEventListener("change", validateDates);
+</script>

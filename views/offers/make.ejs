@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <h4 class="mb-4">Make an Offer :</h4>
+
+      <form class="booking-like-form" action="/listings/<%= listing._id %>/offer"
+        method="POST">
+
+        <div class="mb-3">
+          <label class="form-label">Your Offer Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="offeredPrice"  
+            placeholder="₹ Enter your price"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Original Price</label>
+          <input
+            type="text"
+            class="form-control"
+            value="₹ <%= listing.price %>"
+            disabled
+          >
+        </div>
+
+        <!-- Message -->
+        <div class="mb-3">
+          <label class="form-label">Message to Owner</label>
+          <textarea
+            class="form-control"
+            rows="4"
+            name="message" 
+            placeholder="Write a short message (optional)"
+          ></textarea>
+        </div>
+
+        <button class="book-now-btn mt-4">
+          SEND OFFER
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</div>

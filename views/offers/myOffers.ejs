@@ -1,0 +1,51 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="offers-wrapper">
+
+  <% if (myOffers.length === 0) { %>
+    <div class="empty-state">
+        <h4>No offers yet</h4>
+        <p>
+            You haven’t made any offers yet.  
+            Explore listings and make your first offer.
+        </p>
+
+        <a href="/listings" class="empty-btn">
+            Explore Listings
+        </a>
+    </div>
+  <% } else { %>
+
+    <h3 class="offers-title text-center">Your Offer Requests</h3>
+    <% myOffers.forEach(offer => { %>
+      <div class="offer-card">
+
+        <div class="offer-top">
+          <h5 class="listing-title"><%= offer.listing.title %></h5>
+
+          <span class="status 
+            <%= offer.status === 'accepted' ? 'accepted' : 
+                offer.status === 'rejected' ? 'rejected' : 'pending' %>">
+            <%= offer.status %>
+          </span>
+        </div>
+
+        <p class="price">
+        <span class="actual-price">
+            Actual: ₹ <%= offer.listing.price %>
+        </span>
+        <span class="offered-price">
+            Offered: ₹ <%= offer.offeredPrice %>
+        </span>
+        </p>
+
+        <% if (offer.message) { %>
+          <p class="message"> <b>Request Msg:</b> “<%= offer.message %>”</p>
+        <% } %>
+
+      </div>
+    <% }) %>
+
+  <% } %>
+</div>
